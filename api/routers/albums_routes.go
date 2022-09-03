@@ -47,7 +47,7 @@ func getAlbumById(c *gin.Context) {
 }
 
 func SetAlbumsRoutes(router *gin.RouterGroup) {
-	router.GET("albums", getAlbums)
-	router.GET("albums/:id", getAlbumById)
-	router.POST("albums", postAlbums)
+	router.GET("", getAlbums)
+	router.GET(":id", getAlbumById)
+	router.POST("", postAlbums)
 }

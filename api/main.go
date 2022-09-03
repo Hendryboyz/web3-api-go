@@ -9,10 +9,7 @@ import (
 func main() {
 	server := gin.New()
 
-	// Setting routes
-	routers.SetHealthcheckRoute(server)
-	version1 := server.Group("/v1")
-	routers.InitRoutes(version1)
+	routers.InitRoutes(server)
 
 	server.Run("localhost:8080")
 }
