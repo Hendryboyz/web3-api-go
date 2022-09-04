@@ -10,7 +10,10 @@ func InitRoutes(engine *gin.Engine) {
 	SetBlocksRoutes(blocksGroup)
 	transactionGroup := engine.Group("/transaction")
 	SetTransactionsRoutes(transactionGroup)
+	initV1ApiRoutes(engine)
+}
 
+func initV1ApiRoutes(engine *gin.Engine) {
 	version1 := engine.Group("/v1")
 	albumGroup := version1.Group("/albums")
 	SetAlbumsRoutes(albumGroup)
