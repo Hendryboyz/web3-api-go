@@ -1,7 +1,11 @@
 package routers
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/Hendryboyz/web3-api-go/controllers"
+	"github.com/gin-gonic/gin"
+)
 
 func SetTransactionsRoutes(router *gin.RouterGroup) {
-	router.GET("/:txHash", func(c *gin.Context) {})
+	controller := new(controllers.TransactionsController)
+	router.GET("/:txHash", controller.GetTransactionByHash)
 }

@@ -1,8 +1,12 @@
 package routers
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/Hendryboyz/web3-api-go/controllers"
+	"github.com/gin-gonic/gin"
+)
 
 func SetBlocksRoutes(router *gin.RouterGroup) {
-	router.GET("/:id", func(c *gin.Context) {})
-	router.GET("", func(c *gin.Context) {})
+	controller := new(controllers.BlocksController)
+	router.GET("/:id", controller.GetBlockById)
+	router.GET("", controller.GetBlocks)
 }
