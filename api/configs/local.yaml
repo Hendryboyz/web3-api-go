@@ -4,3 +4,5 @@ database:
   name: ethereum
   username: admin
   password: mysql
+server:
+  port: 8080

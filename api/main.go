@@ -1,6 +1,8 @@
 package main
 
 import (
+	"fmt"
+
 	"github.com/gin-gonic/gin"
 
 	"github.com/Hendryboyz/web3-api-go/configs"
@@ -11,10 +13,12 @@ import (
 func main() {
 	server := gin.New()
 
-	configs.ConfigServer("local")
+	configs := configs.ConfigServer("local")
 	db.Connect()
 
 	routers.InitRoutes(server)
 
-	server.Run("localhost:8080")
+	port := configs.GetInt32("server.port")
+
+	server.Run(fmt.Sprintf("localhost:%d", port))
 }
